@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vlaesyvia</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vlaesyvia.css' %}">
+</head>
+<body>
+    <header>
+        <ul>
+            <li>
+                <a href="{% url 'Home' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'Vlaesyvia' %}">Vlaesyvia</a>
+            </li>
+            <div>
+                <img src="https://picsum.photos/100/100" alt="Logo of the game Vlaesyvia">
+            </div>
+            <li>
+                <a href="login_signup.html">Account</a>
+            </li>
+            <li>
+                <a href="/">Contacts</a>
+            </li>
+        </ul>
+    </header>
+    <main class="container  container-red-gold">
+        <section class="flex flex-evenly">
+            <a class="bg-white gameButton" href="/">MARCHAND</a>
+            <a class="bg-white gameButton" href="/">PERSONNAGES</a>
+            <a class="bg-white gameButton" href="/">CODEX</a>
+            <a class="bg-white gameButton" href="/">CLASSEMENTS</a>
+        </section>
+        <section class="flex flex-center">
+            <div id="game" class="bg-white"></div>
+        </section>
+        <section class="flex flex-center ">
+            <div class="gameplay-container">
+                <div class="flex">
+                    <div class="char flex flex-col flex-center">
+                        <div id="health"></div>
+                        <img src="{% static 'img/characters/Wizard.png' %}" alt="Wizard">
+                        <div id="gold" class="flex flex-center"></div>
+                    </div>
+                    <div class="powers flex flex-col flex-between">
+                        <img src="{% static 'img/icons/FireBall.png' %}" alt="Power 1">
+                        <img src="{% static 'img/icons/RockShatter.png' %}" alt="Power 2">
+                        <img src="{% static 'img/icons/GreenWall.png' %}" alt="Power 3">
+                        <img src="{% static 'img/icons/Entangle.png' %}" alt="Power 4">
+                    </div>
+                </div>
+                <div id="type-screen" class="screen">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="flex flex-center">
+        <img src="https://picsum.photos/100/100" alt="Logo of the game Vlaesyvia">
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </footer>
+</body>
+</html>

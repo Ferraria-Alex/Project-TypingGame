@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vlaesyvia</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <header>
+        <ul>
+            <li>
+                <a href="{% url 'Home' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'Vlaesyvia' %}">Vlaesyvia</a>
+            </li>
+            <div>
+                <img src="https://picsum.photos/100/100" alt="Logo of the game Vlaesyvia">
+            </div>
+            <li>
+                <a href="login_signup.html">Log In</a>
+            </li>
+            <li>
+                <a href="/">Contacts</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section class="container">
+            <h2>Introduction :</h2>
+            <div class="flex gap">
+                <div class="block-md container-purple">
+                    <p>
+                    In Vlaesyvia, players forge heroes to battle through story-driven levels where typing prowess becomes combat. Each character can wield four abilities either general or class-specific ones. Earn currency by defeating waves of enemies to unlock new abilities in the in-game store, where class-specific and universal upgrades await. Track your arsenal in the Codex — a visual inventory showing unlocked powers and locked ones. Compete globally in the endless mode surviving ever-stronger waves. Connect an account to save progress, create multiple heroes, and rise through the ranks.
+                    </p>
+                </div>
+                <div class="block-lg flex flex-center flex-grow">
+                    <img src="{% static 'img/gameplay/ClassicalSlimeBattle.png' %}" alt="Photo of the ongoing game">
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <h2>World story :</h2>
+            <div class="flex container-purple">
+                <p>Humanity's progress has been trapped in a cruel cycle—each golden age shattered by cataclysms that plunge civilization back into ruin. After the latest collapse, survivors unearthed Vahter, a volatile elemental force that bends nature itself. To harness it, the Adventurer’s Guild arose: a coalition of Vahter-wielders called the Vahter-Touched, tasked with protecting humanity from the monstrous aberrations spawned by each new disaster. But over time, the Guild lost its way. What was once a group devoted to the people became controlled by the rich and powerful, the nobles who now use it for their own gain. As monstrous hordes surge, most skilled adventurers refuse to serve the Guild’s corrupted interests. Instead, they fight alone, defending their homes with scavenged Vahter relics and raw ingenuity.</p>
+            </div>
+        </section>
+        <section class="container">
+            <h2>Classes :</h2>
+            <div class="flex flex-between">
+                <div id="knight" class="flex character-container">
+                    <div class="container-red-gold">
+                        <img class="bg-white" src="{% static 'img/characters/Knight.png' %}" alt="Image of the warrior class">
+                    </div>
+                    <p>Warrior</p>
+                </div>
+                <div id="kunoichi" class="flex character-container">
+                    <div class="outline-purple">
+                        <img class="bg-white" src="{% static 'img/characters/kunoichi.png' %}" alt="Photo of the kunoichi class">
+                    </div>
+                    <p>Kunoichi</p>
+                </div>
+                <div id="mage" class="flex character-container">
+                    <div class="outline-purple">
+                        <img class="bg-white" src="{% static 'img/characters/Wizard.png' %}" alt="Photo of the mage class">
+                    </div>
+                    <p>Mage</p>
+                </div>
+            </div>
+            <div class="flex flex-col outline-red-gold">
+                <h3 class="bg-white">Class Story :</h3>
+                <p id="knight-text" class="bg-white text-black">A former Guild champion adorned in gilded armor, he defended nobles until a cataclysm revealed their hoarding of Vahter while his homeland starved. Casting off his heraldry, he wields a fractured Vahter-forged greatsword to rally peasants, turning abandoned siege engines into barriers against the encroaching aberrations.</p>
+                <p id="kunoichi-text" class="bg-white text-black none">Once a shadow operative for the Guild, she infiltrated noble courts to eliminate dissent—until she witnessed their exploitation of villages for Vahter reserves. Disillusioned, she vanished, now using her stealth and scavenged Vahter-poisoned blades to sabotage Guild caravans and protect her mountain enclave from both monsters and greed.</p>
+                <p id="mage-text" class="bg-white text-black none">Trained in the Guild’s inner circle to manipulate Vahter storms, she fled after refusing to weaponize the elementals against rebellious towns. Now a fugitive, she channels raw, unstable Vahter through salvaged runestones, erecting shimmering wards around her coastal village—though each spell risks consuming her in the wild magic she barely controls.</p>
+            </div>
+        </section>
+        <section id="carousel" class="container-full">
+            <ul class='slider'>
+                <li class='item' style="background-image: url('{% static 'img/gameplay/SpringBackground.png' %}')">
+                  <div class='content container-red-gold'>
+                    <h2 class='title'>"Lossless Youths"</h2>
+                    <p class='description'> Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+                    praesentium nisi. Id laboriosam ipsam enim.  </p>
+                  </div>
+                </li>
+                <li class='item' style="background-image: url('{% static 'img/gameplay/OffBeatRoadBackground.png' %}')">
+                  <div class='content container-red-gold'>
+                    <h2 class='title'>"Estrange Bond"</h2>
+                    <p class='description'> Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+                    praesentium nisi. Id laboriosam ipsam enim.  </p>
+                  </div>
+                </li>
+                <li class='item' style="background-image: url('{% static 'img/gameplay/InsideCastleRuins.png' %}')">
+                  <div class='content container-red-gold'>
+                    <h2 class='title'>"The Gate Keeper"</h2>
+                    <p class='description'> Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+                    praesentium nisi. Id laboriosam ipsam enim.  </p>
+                  </div>
+                </li>
+                <li class='item' style="background-image: url('{% static 'img/gameplay/FloatingRuins.png' %}')">
+                  <div class='content container-red-gold'>
+                    <h2 class='title'>"Last Trace Of Us"</h2>
+                    <p class='description'>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+              <div class='carousel-nav flex flex-center'>
+                <i id="btnPrev" class='flex btn prev'><img src="{% static 'img/icons/arrow-left.png' %}"></i>
+                <i id="btnNext" class='flex btn next'><img src="{% static 'img/icons/arrow-right.png' %}"></i>
+              </div>
+        </section>
+    </main>
+    <footer class="flex flex-center">
+        <img src="https://picsum.photos/100/100" alt="Logo of the game Vlaesyvia">
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </footer>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>
