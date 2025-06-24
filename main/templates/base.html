@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <header>
+        <ul>
+            <li>
+                <a href="{% url 'Home' %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'Vlaesyvia' %}">Vlaesyvia</a>
+            </li>
+            <div>
+                <img src="{% static 'img/icons/icon_vlaesyvia.svg' %}" alt="Logo of the game - Vlaesyvia">
+            </div>
+            <li>
+                <a href="login_signup.html">Log In</a>
+            </li>
+            <li>
+                <a href="/">Contacts</a>
+            </li>
+        </ul>
+    </header>
+    {% block main %}{% endblock %}
+    <footer class="flex flex-center">
+    <a href="/">Terms of use</a>
+    <div>
+        <img src="{% static 'img/icons/logo_vlaesyvia2.svg' %}" alt="Logo of the game - Vlaesyvia">
+    </div>
+    <a href="/">Legal Notices</a>
+    </footer>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

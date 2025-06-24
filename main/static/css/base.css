@@ -102,8 +102,10 @@ header div {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FEFCFD;
+    border-radius: 0.3rem;
+    outline: solid 0.3rem #1E1E1E;
     position: relative;
-    background-color: #1E1E1E;
     top: 35px;
     width: 125px;
     height: 125px;
@@ -111,6 +113,7 @@ header div {
 }
 
 header img {
+    width: 85%;
     color: #FEFCFD;
     text-align: center;
 }
@@ -151,6 +154,11 @@ header ul li a:hover{
     align-items: center;
 }
 
+.flex-around{
+    justify-content: space-around;
+    align-items: center;
+}
+
 .flex-grow{
     flex-grow: 1;
 }
@@ -175,6 +183,10 @@ header ul li a:hover{
 .container-full {
     width: 100dvw;
     margin: 5rem auto 0 auto;
+}
+
+.max-width {
+    width: 100%;
 }
 
 .none {
@@ -228,14 +240,34 @@ footer {
     background: linear-gradient(0deg, rgba(115,0,113,1) 0%, rgba(220,106,207,1) 100%);
     border-radius: 0.5rem 0.5rem 0 0;
     outline: 0.3rem solid #1E1E1E;
+    padding: 1rem;
     color: #FEFCFD;
     position: relative;
     z-index: 3;
 }
 
-footer > img {
+footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FEFCFD;
+    margin: 0 3rem;
+    border-radius: 0.3rem;
+    outline: solid 0.3rem #1E1E1E;
+}
+
+footer img {
+    height: 8rem;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
+}
+
+footer a {
+    color:#FEFCFD;
+}
+
+footer a:hover {
+    border-bottom: 5px solid #FEFCFD;
 }
 
 @media screen and (max-width: 1024px) {
@@ -245,13 +277,5 @@ footer > img {
     
     .block-lg{
         width: 80dvw;
-    }
-
-    .flex{
-        flex-direction: column;
-    }
-
-    .flex-between, .flex-center{
-        flex-direction: row;
     }
 }

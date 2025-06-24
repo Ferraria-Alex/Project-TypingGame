@@ -1,33 +1,13 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vlaesyvia</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+{% block title %}Homepage{% endblock %}
+
+{% block css %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-</head>
-<body>
-    <header>
-        <ul>
-            <li>
-                <a href="{% url 'Home' %}">Home</a>
-            </li>
-            <li>
-                <a href="{% url 'Vlaesyvia' %}">Vlaesyvia</a>
-            </li>
-            <div>
-                <img src="https://picsum.photos/100/100" alt="Logo of the game Vlaesyvia">
-            </div>
-            <li>
-                <a href="login_signup.html">Log In</a>
-            </li>
-            <li>
-                <a href="/">Contacts</a>
-            </li>
-        </ul>
-    </header>
+{% endblock %}
+
+{% block main %}
     <main>
         <section class="container">
             <h2>Introduction :</h2>
@@ -80,51 +60,46 @@
         <section id="carousel" class="container-full">
             <ul class='slider'>
                 <li class='item' style="background-image: url('{% static 'img/gameplay/SpringBackground.png' %}')">
-                  <div class='content container-red-gold'>
+                    <div class='content container-red-gold'>
                     <h2 class='title'>"Lossless Youths"</h2>
                     <p class='description'> Lorem ipsum, dolor sit amet consectetur
                     adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
                     praesentium nisi. Id laboriosam ipsam enim.  </p>
-                  </div>
+                    </div>
                 </li>
                 <li class='item' style="background-image: url('{% static 'img/gameplay/OffBeatRoadBackground.png' %}')">
-                  <div class='content container-red-gold'>
+                    <div class='content container-red-gold'>
                     <h2 class='title'>"Estrange Bond"</h2>
                     <p class='description'> Lorem ipsum, dolor sit amet consectetur
                     adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
                     praesentium nisi. Id laboriosam ipsam enim.  </p>
-                  </div>
+                    </div>
                 </li>
                 <li class='item' style="background-image: url('{% static 'img/gameplay/InsideCastleRuins.png' %}')">
-                  <div class='content container-red-gold'>
+                    <div class='content container-red-gold'>
                     <h2 class='title'>"The Gate Keeper"</h2>
                     <p class='description'> Lorem ipsum, dolor sit amet consectetur
                     adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
                     praesentium nisi. Id laboriosam ipsam enim.  </p>
-                  </div>
+                    </div>
                 </li>
                 <li class='item' style="background-image: url('{% static 'img/gameplay/FloatingRuins.png' %}')">
-                  <div class='content container-red-gold'>
+                    <div class='content container-red-gold'>
                     <h2 class='title'>"Last Trace Of Us"</h2>
                     <p class='description'>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.
                     </p>
-                  </div>
+                    </div>
                 </li>
-              </ul>
-              <div class='carousel-nav flex flex-center'>
+                </ul>
+                <div class='carousel-nav flex flex-center'>
                 <i id="btnPrev" class='flex btn prev'><img src="{% static 'img/icons/arrow-left.png' %}"></i>
                 <i id="btnNext" class='flex btn next'><img src="{% static 'img/icons/arrow-right.png' %}"></i>
-              </div>
+                </div>
         </section>
     </main>
-    <footer class="flex flex-center">
-        <img src="https://picsum.photos/100/100" alt="Logo of the game Vlaesyvia">
-        <ul>
-            <li></li>
-            <li></li>
-        </ul>
-    </footer>
+{% endblock %}
+
+{% block scripts %}
     <script src="{% static 'js/index.js' %}"></script>
-</body>
-</html>
+{% endblock %}

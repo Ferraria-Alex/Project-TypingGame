@@ -12,6 +12,7 @@ section {
     outline: 0.15rem solid #1E1E1E;
     text-align: center;
     width: 11rem;
+    margin: 0 0.3rem;
     cursor: pointer;
     transition: 0.1s ease-in;
 }
@@ -26,6 +27,20 @@ section {
     height: 500px;
     outline: 0.2rem solid #1E1E1E;
     border-radius: 0.3rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.power-container {
+    width: 5rem;
+    height: 5rem;
+    outline: solid 2px black;
+    margin-bottom: 0.3rem;
+}
+
+.powers {
+    height: 245px;
 }
 
 .powers img {
@@ -43,9 +58,43 @@ section {
     background-color: #FEFCFD;
 }
 
+.story {
+    width: 70%;
+}
+
+.screen {
+    width: 100%;
+    height: 250px;
+    outline: 0.2rem solid #1E1E1E;
+    border-radius: 0.3rem;
+    background-color: #FEFCFD;
+}
+
+#typeScreen {
+    width: 98%;
+    height: 205px;
+    margin: 0 0 5px 0;
+}
+
+#typeInput {
+    width: 98%;
+    border: none;
+    border-bottom: 2px solid black;
+    border-radius: 0.2rem;
+    padding: 2px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#typeInput:focus {
+    outline: none;
+}
+
 .char img {
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
 }
 
 .gameplay-container {
@@ -58,11 +107,9 @@ section {
     height: 24px;
     background: rgba(158,43,37,1);
     border-radius: 5px;
-    margin-bottom: 8px;
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
-    top: 884px;
     outline: solid 2px black;
 }
 
@@ -76,7 +123,7 @@ section {
 }
 
 #health::after {
-    content: "100/100";
+    content: attr(currentHealth)"/100";
     width: 100%;
     height: 24px;
     background: #4CAF50;
@@ -86,6 +133,7 @@ section {
     outline: solid 2px black;
     text-align: center;
     color: white;
+    align-content: center;
 }
 
 /* Health bar at top */
@@ -94,11 +142,9 @@ section {
     height: 24px;
     background: rgba(203,161,53,1);
     border-radius: 5px;
-    margin-bottom: 8px;
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
-    top: 62rem;
     outline: solid 2px black;
 }
 
@@ -112,7 +158,7 @@ section {
 }
 
 #gold::after {
-    content: "000000000000";
+    content: attr(money);
     width: 100%;
     height: 24px;
     background: rgba(158,43,37,1);
@@ -123,4 +169,48 @@ section {
     text-align: center;
     color: white;
     letter-spacing: 3px;
+    align-content: center;
+}
+
+@media screen and (max-width: 1300px) {
+    #health, #gold {
+        width: 11.5rem;
+    }
+
+    #health::before {
+        left: 6px;
+    }
+
+    #gold::before {
+        left: 12px;
+    }
+
+    #health::before, #gold::before, #health::after, #gold::after {
+        font-size: 12px;
+    }
+
+    .char, .powers, .story {
+        margin: 0 0.3rem;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .button-container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    #health {
+        top: 54.8rem;
+    }
+    
+    #gold {
+        top: 66.9rem;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    #health, #gold {
+        width: 10.5rem;
+    }
 }

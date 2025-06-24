@@ -1,50 +1,30 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vlaesyvia</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+{% block title %}Vlaesyvia{% endblock %}
+
+{% block css %}
     <link rel="stylesheet" href="{% static 'css/vlaesyvia.css' %}">
-</head>
-<body>
-    <header>
-        <ul>
-            <li>
-                <a href="{% url 'Home' %}">Home</a>
-            </li>
-            <li>
-                <a href="{% url 'Vlaesyvia' %}">Vlaesyvia</a>
-            </li>
-            <div>
-                <img src="https://picsum.photos/100/100" alt="Logo of the game Vlaesyvia">
-            </div>
-            <li>
-                <a href="login_signup.html">Account</a>
-            </li>
-            <li>
-                <a href="/">Contacts</a>
-            </li>
-        </ul>
-    </header>
+{% endblock %}
+
+{% block main %}
     <main class="container  container-red-gold">
-        <section class="flex flex-evenly">
-            <a class="bg-white gameButton" href="/">MARCHAND</a>
-            <a class="bg-white gameButton" href="/">PERSONNAGES</a>
+        <section class="button-container flex flex-evenly">
+            <a class="bg-white gameButton" href="/">MERCHANT</a>
+            <a class="bg-white gameButton" href="/">CHARACTERS</a>
             <a class="bg-white gameButton" href="/">CODEX</a>
-            <a class="bg-white gameButton" href="/">CLASSEMENTS</a>
+            <a class="bg-white gameButton" href="/">LEADERBOARD</a>
         </section>
         <section class="flex flex-center">
             <div id="game" class="bg-white"></div>
         </section>
-        <section class="flex flex-center ">
+        <section class="flex flex-center">
             <div class="gameplay-container">
-                <div class="flex">
+                <div class="flex flex-between">
                     <div class="char flex flex-col flex-center">
-                        <div id="health"></div>
+                        <div id="health" currentHealth="100"></div>
                         <img src="{% static 'img/characters/Wizard.png' %}" alt="Wizard">
-                        <div id="gold" class="flex flex-center"></div>
+                        <div id="gold" money="000000000000" class="flex flex-center"></div>
                     </div>
                     <div class="powers flex flex-col flex-between">
                         <img src="{% static 'img/icons/FireBall.png' %}" alt="Power 1">
@@ -52,18 +32,38 @@
                         <img src="{% static 'img/icons/GreenWall.png' %}" alt="Power 3">
                         <img src="{% static 'img/icons/Entangle.png' %}" alt="Power 4">
                     </div>
-                </div>
-                <div id="type-screen" class="screen">
+                    <div class="story">
+                        <div class="screen flex flex-col flex-around">
+                            <div class="max-width flex flex-evenly">
+                                <div class="power-container flex flex-col flex-center">
+                                    <img src="{% static 'img/icons/FireBall.png' %}" alt="Power 1">
+                                    <p class="word"></p>
+                                </div>
+                                <div class="power-container flex flex-col flex-center">
+                                    <img src="{% static 'img/icons/FireBall.png' %}" alt="Power 1">
+                                    <p class="word"></p>
+                                </div>
+                                <div class="power-container flex flex-col flex-center">
+                                    <img src="{% static 'img/icons/FireBall.png' %}" alt="Power 1">
+                                    <p class="word"></p>
+                                </div>
+                                <div class="power-container flex flex-col flex-center">
+                                    <img src="{% static 'img/icons/FireBall.png' %}" alt="Power 1">
+                                    <p class="word"></p>
+                                </div>
+                            </div>
+                            <input id="typeInput" type="text" placeholder="Type here ...">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="flex flex-center">
-        <img src="https://picsum.photos/100/100" alt="Logo of the game Vlaesyvia">
-        <ul>
-            <li></li>
-            <li></li>
-        </ul>
-    </footer>
-</body>
-</html>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        window.STATIC_URL = "{% static '' %}";
+    </script>
+    <script src="{% static 'js/vlaesyvia.js' %}"></script>
+{% endblock %}

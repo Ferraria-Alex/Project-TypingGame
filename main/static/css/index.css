@@ -44,7 +44,7 @@ h3.bg-white  {
     list-style-type: none;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-65%);
     z-index: 1;
     background-position: center;
     background-size: cover;
@@ -151,5 +151,11 @@ h3.bg-white  {
     img.bg-white  {
         width: 150px;
         height: 150px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    section.container > div.flex {
+        flex-direction: column;
     }
 }
