@@ -3,9 +3,9 @@ name: Django Tests
 # Run tests on every push and pull request
 on:
   push:
-    branches: [*]
+    branches: [ '**' ]
   pull_request:
-    branches: [*]
+    branches: [ '**' ]
 
 jobs:
   test:
