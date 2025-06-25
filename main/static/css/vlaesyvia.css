@@ -199,14 +199,6 @@ section {
         flex-wrap: wrap;
         gap: 20px;
     }
-
-    #health {
-        top: 54.8rem;
-    }
-    
-    #gold {
-        top: 66.9rem;
-    }
 }
 
 @media screen and (max-width: 970px) {

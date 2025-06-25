@@ -83,6 +83,9 @@ DATABASES = {
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST'),
+        "OPTIONS": {
+            'init_command': "SET sql_mode='STRICT_ALL_TABLES'; SET default_storage_engine=INNODB;"
+        }
     }
 }
 

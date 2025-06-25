@@ -4,10 +4,7 @@ class VlaesyviaGame {
         this.currentHealth = 100;
         this.gold = 0;
         this.gameActive = false;
-        this.currentLevel = 1;
-        this.enemies = [];
-        this.powerWords = [];
-        this.activePowers = [];
+        this.currentLevel = 0;
         this.gameCanvas = null;
         this.backgroundImage = '';
         
@@ -69,7 +66,7 @@ class VlaesyviaGame {
                 damage: 20,
                 speed: 1,
                 goldReward: 2,
-                color: '#654321'
+                image: ['img/enemies/slime1.png', 'img/enemies/slime2.png', 'img/enemies/slime3.png']
             },
             {
                 name: 'Dragon',
@@ -77,7 +74,7 @@ class VlaesyviaGame {
                 damage: 35,
                 speed: 0.5,
                 goldReward: 5,
-                color: '#8B0000'
+                image: ['img/enemies/slime1.png', 'img/enemies/slime2.png', 'img/enemies/slime3.png']
             }
         ];
 
@@ -136,8 +133,8 @@ class VlaesyviaGame {
                 }
                 
                 if (wordP) {
-                    // Display one of the power words
-                    wordP.textContent = power.words[0];
+                    let random = Math.floor(Math.random()*2);
+                    wordP.textContent = power.words[random];
                     wordP.style.fontSize = '0.8rem';
                     wordP.style.fontWeight = 'bold';
                     wordP.style.color = '#333';
@@ -178,6 +175,7 @@ class VlaesyviaGame {
 
         if (matchingPower) {
             this.castSpell(matchingPower);
+            this.setupPowerDisplay();
         } else {
             this.showFloatingText('UNKNOWN SPELL!', '#ff4444', this.gameCanvas.offsetWidth / 2, 100);
         }
@@ -295,20 +293,22 @@ class VlaesyviaGame {
     }
 
     createEnemyElement(enemy) {
+        let randomImage = Math.floor(Math.random()*2);
         const enemyEl = document.createElement('div');
+        enemyEl.id = `enemy-${enemy.id}`;
         enemyEl.style.position = 'absolute';
         enemyEl.style.width = '50px';
         enemyEl.style.height = '50px';
-        enemyEl.style.backgroundImage = `url(${window.STATIC_URL + enemy.image[Math.random()*2]})`;
+        enemyEl.style.backgroundImage = `url(${window.STATIC_URL + enemy.image[randomImage]})`;
+        enemyEl.style.backgroundPosition = 'center';
+        enemyEl.style.backgroundSize = 'cover';
+        enemyEl.style.backgroundRepeat = 'no-repeat';
         enemyEl.style.left = enemy.x + 'px';
         enemyEl.style.top = enemy.y + 'px';
         enemyEl.style.transition = 'left 0.1s linear';
         enemyEl.style.display = 'flex';
         enemyEl.style.alignItems = 'center';
         enemyEl.style.justifyContent = 'center';
-        enemyEl.style.fontSize = '10px';
-        enemyEl.style.fontWeight = 'bold';
-        enemyEl.textContent = enemy.name.charAt(0);
 
         // Health bar
         const healthBar = document.createElement('div');
@@ -578,12 +578,39 @@ class VlaesyviaGame {
     gameOver() {
         this.gameActive = false;
         this.showFloatingText('GAME OVER!', '#ff4444', this.gameCanvas.offsetWidth / 2, this.gameCanvas.offsetHeight / 2);
-        
-        setTimeout(() => {
-            if (confirm('Game Over! Your final score: ' + this.gold + ' gold. Play again?')) {
-                this.resetGame();
+
+        // XSS Protection
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        // Fetch sending data to backend
+        fetch('/vlaesyvia/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': csrfToken
+            },
+            body: new URLSearchParams({
+                character: 'test_character',
+                gold: this.gold,
+                time: 50000,
+                kills: 8,
+                level: 'test_level',
+                account_id: 0
+            })
+        })
+        .then(
+            reply => reply.json()
+        ).then(
+            data => {
+                if (data.type === 'success'){
+                    alert(data.messsage);
+                    this.resetGame();
+                } else {
+                    alert('Error: ' + data.messsage);
+                    this.resetGame();
+                }
             }
-        }, 2000);
+        );
     }
 
     resetGame() {
@@ -611,6 +638,6 @@ class VlaesyviaGame {
 // Initialize game when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
-        const game = new VlaesyviaGame();
+        new VlaesyviaGame();
     }, 500);
 });
